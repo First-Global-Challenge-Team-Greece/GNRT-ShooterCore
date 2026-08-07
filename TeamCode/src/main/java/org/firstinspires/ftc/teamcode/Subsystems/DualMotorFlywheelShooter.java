@@ -26,6 +26,7 @@ public class DualMotorFlywheelShooter extends FlywheelShooter {
 
     @Override
     double getVelocity() {
-        return leftShooterMotor.getVelocity() + rightShooterMotor.getVelocity() / 2;
+        return ((leftShooterMotor.getVelocity() * FlywheelShooterConfig.SECOND_TO_MINUTE_COEFFICIENT / FlywheelShooterConfig.ENCODER_CPR) +
+                (rightShooterMotor.getVelocity() * FlywheelShooterConfig.SECOND_TO_MINUTE_COEFFICIENT / FlywheelShooterConfig.ENCODER_CPR)) / 2;
     }
 }
